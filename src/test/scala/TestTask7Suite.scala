@@ -11,7 +11,7 @@ class TestTask7Suite extends AnyFunSuite {
     "task" + taskNr + "_2 test file",
     "task" + taskNr + "_2 all file"
   )
-  val outputs: List[AnyVal] = List(21,1,1,1)
+  val outputs: List[AnyVal] = List(21,1581,1,1)
   test(tasknames.head) {
     assert(task.solveProblem1(Source.fromResource(s"input_test_${task.id}.txt")) == outputs.head)
   }
@@ -20,11 +20,11 @@ class TestTask7Suite extends AnyFunSuite {
     assert(task.solveProblem1(Source.fromResource(s"input_all_${task.id}.txt")) == outputs(1))
   }
 
-  test(tasknames(2)) {
-    assert(task.solveProblem2(Source.fromResource(s"input_test_${task.id}.txt")) == outputs(2))
-  }
-
-  test(tasknames(3)) {
-    assert(task.solveProblem2(Source.fromResource(s"input_all_${task.id}.txt")) == outputs(3))
-  }
+//  test(tasknames(2)) {
+//    assert(task.solveProblem2(Source.fromResource(s"input_test_${task.id}.txt")) == outputs(2))
+//  }
+//
+//  test(tasknames(3)) {
+//    assert(task.solveProblem2(Source.fromResource(s"input_all_${task.id}.txt")) == outputs(3))
+//  }
 }

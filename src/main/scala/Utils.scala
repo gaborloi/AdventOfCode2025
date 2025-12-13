@@ -1,3 +1,4 @@
+import scala.annotation.targetName
 import scala.io.{BufferedSource, Source}
 
 
@@ -13,5 +14,23 @@ object Utils {
     (for {
       line <- lines
     } yield line.toCharArray).toArray
+  }
+
+  case class Cord(r: Int, c: Int) {
+    @targetName("add")
+    def +(that: Cord): Cord = Cord(r + that.r, c + that.c)
+
+    @targetName("subtract")
+    def -(that: Cord): Cord = Cord(r - that.r, c - that.c)
+
+    @targetName("multiply")
+    def *(that: Cord): Int = r * that.r + c * that.c
+
+    def valid(maxRowIdx: Int, maxColIdx: Int): Boolean = (r <= maxRowIdx) && (c <= maxColIdx) && (r > -1) && (c > -1)
+
+    @targetName("multiply")
+    def *(const: Int): Cord = Cord(r * const, c * const)
+
+    def rotateRight(): Cord = Cord(c, -r)
   }
 }
