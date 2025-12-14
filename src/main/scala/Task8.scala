@@ -57,8 +57,4 @@ object Task8 {
       if (k == 1) distList.take(1).head else evalDists(distList, cordMappings, cordCount, math.max(k/10,1))
     } else evalDists(distList.drop(k), cMUpd, cordCount, k)
   }
-
-
-
-
 }
