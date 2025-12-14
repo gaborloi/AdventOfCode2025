@@ -11,20 +11,20 @@ class TestTask8Suite extends AnyFunSuite {
     "task" + taskNr + "_2 test file",
     "task" + taskNr + "_2 all file"
   )
-  val outputs: List[AnyVal] = List(40, 352584,40,73007003089792L)
+  val outputs: List[AnyVal] = List(40, 352584, 25272L, 9617397716L)
   test(tasknames.head) {
     assert(task.solveProblem1(Source.fromResource(s"input_test_${task.id}.txt"), 10) == outputs.head)
   }
 
   test(tasknames(1)) {
-    assert(task.solveProblem1(Source.fromResource(s"input_all_${task.id}.txt"), 10) == outputs(1))
+    assert(task.solveProblem1(Source.fromResource(s"input_all_${task.id}.txt"), 1000) == outputs(1))
   }
 
   test(tasknames(2)) {
-    assert(task.solveProblem2(Source.fromResource(s"input_test_${task.id}.txt")) == outputs(2))
+    assert(task.solveProblem2(Source.fromResource(s"input_test_${task.id}.txt"), 10) == outputs(2))
   }
 
   test(tasknames(3)) {
-    assert(task.solveProblem2(Source.fromResource(s"input_all_${task.id}.txt")) == outputs(3))
+    assert(task.solveProblem2(Source.fromResource(s"input_all_${task.id}.txt"), 1000) == outputs(3))
   }
 }

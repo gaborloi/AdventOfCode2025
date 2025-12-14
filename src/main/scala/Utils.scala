@@ -1,4 +1,4 @@
-import scala.annotation.targetName
+import scala.annotation.{tailrec, targetName}
 import scala.io.{BufferedSource, Source}
 
 
@@ -33,4 +33,21 @@ object Utils {
 
     def rotateRight(): Cord = Cord(c, -r)
   }
+
+  @tailrec
+  def binarySearch(
+    function: Function[Int,Int], target: Int, low: Int, high: Int, eps: Int, n: Int, maxN: Int
+  ): Option[Int] = {
+    val mid = low + (high - low)/2
+    val mV = function(mid)
+    if (math.abs(mV-target) < eps) Some(mid) else {
+      val lV = function(low)
+      val hV = function(high)
+
+      val (lB, hB) = if (((lV <= target) && (target <= mV)) || ((lV >= target) && (target >= mV)))
+        (low, mid) else (mid, high)  
+      if (n+1 > maxN) None else binarySearch(function, target, lB, hB, eps, n+1, maxN)
+    }
+  }
+  
 }
