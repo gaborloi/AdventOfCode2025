@@ -11,7 +11,7 @@ class TestTask9Suite extends AnyFunSuite {
     "task" + taskNr + "_2 test file",
     "task" + taskNr + "_2 all file"
   )
-  val outputs: List[AnyVal] = List(50L,4758598740L,40,73007003089792L)
+  val outputs: List[AnyVal] = List(50L,4758598740L,24L,73007003089792L)
   test(tasknames.head) {
     assert(task.solveProblem1(Source.fromResource(s"input_test_${task.id}.txt")) == outputs.head)
   }
@@ -20,10 +20,10 @@ class TestTask9Suite extends AnyFunSuite {
     assert(task.solveProblem1(Source.fromResource(s"input_all_${task.id}.txt")) == outputs(1))
   }
 
-//  test(tasknames(2)) {
-//    assert(task.solveProblem2(Source.fromResource(s"input_test_${task.id}.txt")) == outputs(2))
-//  }
-//
+  test(tasknames(2)) {
+    assert(task.solveProblem2(Source.fromResource(s"input_test_${task.id}.txt")) == outputs(2))
+  }
+
 //  test(tasknames(3)) {
 //    assert(task.solveProblem2(Source.fromResource(s"input_all_${task.id}.txt")) == outputs(3))
 //  }
